@@ -1,0 +1,10 @@
+<div class="card bg-base-100 shadow-xl">
+  <figure><img [src]="article.thumbnail" [alt]="article.title" /></figure>
+  <div class="card-body">
+    <h2 class="card-title">{{ article.title }}</h2>
+    <p>{{ article.description }}</p>
+    <div class="card-actions justify-end">
+      <button class="btn w-full btn-outline btn-secondary btn-sm mt-3">Read more</button>
+    </div>
+  </div>
+</div>

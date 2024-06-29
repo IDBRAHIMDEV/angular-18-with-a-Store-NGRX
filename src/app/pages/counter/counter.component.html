@@ -1,0 +1,13 @@
+<h1 class="text-2xl font-bold text-sky-300 text-center">counter works!</h1>
+
+<div class="flex my-5 justify-center">
+    <p class="text-center font-bold text-3xl my-6">{{ count$ | async }}</p>
+</div>
+
+<div class="flex justify-center">
+    <div>
+        <button (click)="increment()" class="btn btn-primary text-white mx-3">Increment</button>
+        <button (click)="decrement()" class="btn btn-warning text-white mx-3">Decrement</button>
+        <button (click)="reset()" class="btn btn-error text-white mx-3">Reset</button>
+    </div>
+</div>

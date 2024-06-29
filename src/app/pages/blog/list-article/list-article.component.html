@@ -1,0 +1,16 @@
+
+<div class="flex flex-row">
+    <div class="basis-1/2">
+        <h1 class="my-10 text-2xl font-bold text-gray-400">List of articles</h1>
+    </div>
+    <div class="basis-1/2 content-center text-end">
+        <button (click)="openModal()" class="btn btn-sm btn-secondary btn-outline">Add</button>
+    </div> 
+</div>
+<ul class="grid grid-cols-2 gap-6">
+    @for(article of (articles$ | async); track article.id) {
+        <app-card-article [article]="article"></app-card-article>
+    }
+</ul>
+
+<app-add-article [isOpen]="isModalOpen" (close)="closeModal()"></app-add-article>

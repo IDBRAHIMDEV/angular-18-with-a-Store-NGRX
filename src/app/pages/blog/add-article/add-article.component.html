@@ -1,0 +1,36 @@
+<div class="modal" [ngClass]="{'modal-open': isOpen}">
+    <div class="modal-box">
+      <h3 class="font-bold text-lg">New article</h3>
+      <p class="py-4">All fields are required !!!</p>
+      
+      <form [formGroup]="formArticle" (ngSubmit)="addNewArticle()">
+      
+
+            <label class="form-control w-full my-5">
+                <div class="label">
+                  <span class="label-text">Tape the title</span>
+                </div>
+                <input formControlName="title" type="text" placeholder="Title" class="input input-bordered w-full" />
+              </label>
+              <label class="form-control w-full my-5">
+                <div class="label">
+                  <span class="label-text">Url image</span>
+                </div>
+                <input formControlName="thumbnail" type="url" placeholder="image" class="input input-bordered w-full" />
+              </label>
+              <label class="form-control w-full my-3">
+                <div class="label">
+                  <span class="label-text">Tape the  description</span>
+                </div>
+                <textarea  formControlName="description" class="textarea textarea-bordered w-full" placeholder="description" rows="4"></textarea>
+              </label>
+            
+            <div class="modal-action">
+      
+              <button class="btn btn-secondary hover:bg-fuchsia-600">Add</button>
+              <button class="btn" type="button" (click)="closeModal()">Close</button>
+            </div>
+        </form>
+
+    </div>
+  </div>
