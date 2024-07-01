@@ -1,19 +1,21 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { random } from 'lodash';
 import { loadOneArticle } from '../../../store/blog/blog.actions';
 import { Observable } from 'rxjs';
 import { Blog } from '../../../store/blog/blog.model';
+import { NgClass } from '@angular/common';
+import { getArticle } from '../../../store/blog/blog.selectors';
 
 @Component({
   selector: 'app-edit-article',
   standalone: true,
-  imports: [],
+  imports: [ReactiveFormsModule, NgClass],
   templateUrl: './edit-article.component.html',
   styleUrl: './edit-article.component.css',
 })
-export class EditArticleComponent {
+export class EditArticleComponent implements OnInit {
   @Input() isOpen = false;
   @Output() close = new EventEmitter();
 
@@ -29,13 +31,22 @@ export class EditArticleComponent {
     });
   }
 
+  ngOnInit(): void {
+    this.store.select(getArticle).subscribe({
+      next: (res) => {
+        console.log('response: ', res);
+        this.formArticle.patchValue({ ...res });
+      },
+    });
+  }
+
   editArticle() {
     console.log('edit');
-
-    this.store.dispatch(loadOneArticle({ id: 3 }));
     this.formArticle.reset();
     this.closeModal();
   }
+
+  updateArticle() {}
 
   closeModal() {
     this.isOpen = false;

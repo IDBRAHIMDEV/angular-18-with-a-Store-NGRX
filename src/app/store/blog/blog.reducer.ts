@@ -20,7 +20,7 @@ const blogReducer = createReducer(
   on(loadOneArticle, (state, action) => {
     return {
       ...state,
-      article: state.list.find((item) => item.id === action.id),
+      article: action.article,
     };
   })
 );
