@@ -1,19 +1,23 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
-import { CounterComponent } from './pages/counter/counter.component';
 
 export const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
+    redirectTo: '/home',
+    pathMatch: 'full',
   },
   {
     path: 'home',
-    component: HomeComponent,
+
+    loadComponent: () =>
+      import('./pages/home/home.component').then((c) => c.HomeComponent),
   },
   {
     path: 'counter',
-    component: CounterComponent,
+    loadComponent: () =>
+      import('./pages/counter/counter.component').then(
+        (c) => c.CounterComponent
+      ),
   },
   {
     path: 'blog',

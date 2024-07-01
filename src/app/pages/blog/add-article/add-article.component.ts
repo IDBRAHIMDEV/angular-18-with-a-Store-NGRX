@@ -42,7 +42,7 @@ export class AddArticleComponent {
         ]),
       },
       {
-        updateOn: 'blur',
+        updateOn: 'submit',
       }
     );
   }

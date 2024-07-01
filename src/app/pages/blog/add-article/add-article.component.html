@@ -55,7 +55,7 @@
                 </div>
                 <textarea  formControlName="description" class="textarea textarea-bordered w-full" placeholder="description" rows="4"></textarea>
 
-                @if(description?.invalid) {
+                @if(description?.invalid  && (description?.dirty || description?.touched)) {
                   <div class="mx-3">
 
                     @if(description?.errors?.['required']) {

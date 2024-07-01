@@ -1,5 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { random } from 'lodash';
 import {
@@ -28,11 +33,27 @@ export class EditArticleComponent implements OnInit {
   id: number = 0;
 
   constructor(private store: Store) {
-    this.formArticle = new FormGroup({
-      title: new FormControl(''),
-      thumbnail: new FormControl(''),
-      description: new FormControl(''),
-    });
+    this.formArticle = new FormGroup(
+      {
+        title: new FormControl('', [
+          Validators.required,
+          Validators.minLength(5),
+        ]),
+        thumbnail: new FormControl('', [
+          Validators.required,
+          Validators.pattern(
+            '^https://process.fs.teachablecdn.com/[A-Za-z0-9]+/resize=width:[0-9]+/https://cdn.filestackcontent.com/[A-Za-z0-9]+$'
+          ),
+        ]),
+        description: new FormControl('', [
+          Validators.required,
+          Validators.minLength(10),
+        ]),
+      },
+      {
+        updateOn: 'submit',
+      }
+    );
   }
 
   ngOnInit(): void {
@@ -46,12 +67,18 @@ export class EditArticleComponent implements OnInit {
   }
 
   updateArticle() {
+    if (this.formArticle.invalid) {
+      for (let field in this.formArticle.controls) {
+        const control = this.formArticle.get(field);
+        control?.markAsDirty({ onlySelf: true });
+      }
+      return;
+    }
+
     const article: Blog = {
       ...this.formArticle.value,
       id: this.id,
     };
-
-    console.log(article);
 
     this.store.dispatch(updateArticle({ article }));
     this.formArticle.reset();
@@ -61,5 +88,17 @@ export class EditArticleComponent implements OnInit {
   closeModal() {
     this.isOpen = false;
     this.close.emit();
+  }
+
+  get title() {
+    return this.formArticle.get('title');
+  }
+
+  get description() {
+    return this.formArticle.get('description');
+  }
+
+  get thumbnail() {
+    return this.formArticle.get('thumbnail');
   }
 }
