@@ -1,6 +1,11 @@
 import { createReducer, on } from '@ngrx/store';
 import { initBlogState } from './blog.state';
-import { addArticle, loadArticles, loadOneArticle } from './blog.actions';
+import {
+  addArticle,
+  loadArticles,
+  loadOneArticle,
+  updateArticle,
+} from './blog.actions';
 
 const blogReducer = createReducer(
   initBlogState,
@@ -21,6 +26,15 @@ const blogReducer = createReducer(
     return {
       ...state,
       article: action.article,
+    };
+  }),
+  on(updateArticle, (state, action) => {
+    return {
+      ...state,
+      list: state.list.map((item) =>
+        item.id === action.article.id ? action.article : item
+      ),
+      article: undefined,
     };
   })
 );

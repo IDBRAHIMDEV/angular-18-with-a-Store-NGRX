@@ -2,7 +2,10 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { random } from 'lodash';
-import { loadOneArticle } from '../../../store/blog/blog.actions';
+import {
+  loadOneArticle,
+  updateArticle,
+} from '../../../store/blog/blog.actions';
 import { Observable } from 'rxjs';
 import { Blog } from '../../../store/blog/blog.model';
 import { NgClass } from '@angular/common';
@@ -22,6 +25,7 @@ export class EditArticleComponent implements OnInit {
   formArticle!: FormGroup;
 
   article$!: Observable<Blog>;
+  id: number = 0;
 
   constructor(private store: Store) {
     this.formArticle = new FormGroup({
@@ -35,18 +39,24 @@ export class EditArticleComponent implements OnInit {
     this.store.select(getArticle).subscribe({
       next: (res) => {
         console.log('response: ', res);
+        this.id = res?.id || 0;
         this.formArticle.patchValue({ ...res });
       },
     });
   }
 
-  editArticle() {
-    console.log('edit');
+  updateArticle() {
+    const article: Blog = {
+      ...this.formArticle.value,
+      id: this.id,
+    };
+
+    console.log(article);
+
+    this.store.dispatch(updateArticle({ article }));
     this.formArticle.reset();
     this.closeModal();
   }
-
-  updateArticle() {}
 
   closeModal() {
     this.isOpen = false;
