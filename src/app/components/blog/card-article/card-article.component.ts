@@ -13,11 +13,18 @@ import { loadOneArticle } from '../../../store/blog/blog.actions';
 export class CardArticleComponent {
   @Input() article!: Blog;
   @Output() openEditFormArticle = new EventEmitter();
+  @Output() openDeleteModalArticle = new EventEmitter();
 
   constructor(private store: Store) {}
 
   openEditArticle() {
     this.openEditFormArticle.emit();
+    this.store.dispatch(loadOneArticle({ article: this.article }));
+  }
+
+  openDeleteArticle() {
+    console.log('delete');
+    this.openDeleteModalArticle.emit();
     this.store.dispatch(loadOneArticle({ article: this.article }));
   }
 }

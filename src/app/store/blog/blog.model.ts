@@ -7,5 +7,5 @@ export interface Blog {
 
 export interface BlogState {
   list: Blog[];
-  article: Blog | undefined;
+  article: Blog;
 }

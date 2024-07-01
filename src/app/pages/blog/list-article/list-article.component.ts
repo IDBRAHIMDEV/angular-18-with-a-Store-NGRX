@@ -8,6 +8,7 @@ import { AsyncPipe } from '@angular/common';
 import { CardArticleComponent } from '../../../components/blog/card-article/card-article.component';
 import { AddArticleComponent } from '../add-article/add-article.component';
 import { EditArticleComponent } from '../edit-article/edit-article.component';
+import { DestroyArticleComponent } from '../destroy-article/destroy-article.component';
 
 @Component({
   selector: 'app-list-article',
@@ -17,6 +18,7 @@ import { EditArticleComponent } from '../edit-article/edit-article.component';
     CardArticleComponent,
     AddArticleComponent,
     EditArticleComponent,
+    DestroyArticleComponent,
   ],
   templateUrl: './list-article.component.html',
   styleUrl: './list-article.component.css',
@@ -24,6 +26,7 @@ import { EditArticleComponent } from '../edit-article/edit-article.component';
 export class ListArticleComponent implements OnInit {
   isModalOpen = false;
   editable: boolean = false;
+  deletable: boolean = false;
 
   articles$!: Observable<Blog[]>;
   constructor(private store: Store<AppStore>) {}
@@ -33,16 +36,30 @@ export class ListArticleComponent implements OnInit {
   }
 
   openModal() {
+    this.initModals();
     this.isModalOpen = true;
   }
 
   openEditModal() {
+    this.initModals();
     this.openModal();
     this.editable = true;
+  }
+
+  openDeleteModal() {
+    this.initModals();
+    this.openModal();
+    this.deletable = true;
   }
 
   closeModal() {
     this.isModalOpen = false;
     this.editable = false;
+  }
+
+  initModals() {
+    this.editable = false;
+    this.deletable = false;
+    this.isModalOpen = false;
   }
 }

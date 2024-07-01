@@ -1,4 +1,4 @@
-import { BlogState } from './blog.model';
+import { BlogState, Blog } from './blog.model';
 
 export const initBlogState: BlogState = {
   list: [
@@ -17,5 +17,5 @@ export const initBlogState: BlogState = {
       id: 2,
     },
   ],
-  article: undefined,
+  article: {} as Blog,
 };
