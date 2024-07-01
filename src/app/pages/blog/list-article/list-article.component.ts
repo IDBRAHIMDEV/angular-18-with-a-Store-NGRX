@@ -9,6 +9,9 @@ import { CardArticleComponent } from '../../../components/blog/card-article/card
 import { AddArticleComponent } from '../add-article/add-article.component';
 import { EditArticleComponent } from '../edit-article/edit-article.component';
 import { DestroyArticleComponent } from '../destroy-article/destroy-article.component';
+import { SkeletonCardComponent } from '../../../components/shared/skeleton-card/skeleton-card.component';
+import { LoadingComponent } from '../../../components/shared/loading/loading.component';
+import { AlertComponent } from '../../../components/shared/alert/alert.component';
 
 @Component({
   selector: 'app-list-article',
@@ -19,6 +22,9 @@ import { DestroyArticleComponent } from '../destroy-article/destroy-article.comp
     AddArticleComponent,
     EditArticleComponent,
     DestroyArticleComponent,
+    SkeletonCardComponent,
+    LoadingComponent,
+    AlertComponent,
   ],
   templateUrl: './list-article.component.html',
   styleUrl: './list-article.component.css',

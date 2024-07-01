@@ -8,7 +8,7 @@
     </div> 
 </div>
 
-@defer () {
+@defer (on timer(1s)) {
 
     <ul class="grid grid-cols-2 gap-6">
         @for(article of (articles$ | async); track article.id) {
@@ -16,27 +16,14 @@
         }
     </ul>
 }
-@loading(after 4s) {
-  <div class="flex justify-center">
-    <span class="loading loading-dots loading-lg"></span>
-  </div>
+@loading(after 2s) {
+ <app-loading></app-loading>
 }
 @placeholder {
-    <div class="flex w-52 flex-col gap-4 justify-start">
-        <div class="flex items-center gap-4">
-          <div class="skeleton h-16 w-16 shrink-0 rounded-full"></div>
-          <div class="flex flex-col gap-4">
-            <div class="skeleton h-4 w-20"></div>
-            <div class="skeleton h-4 w-28"></div>
-          </div>
-        </div>
-        <div class="skeleton h-32 w-full"></div>
-      </div>
+   <app-skeleton-card></app-skeleton-card>
 }
 @error {
-    <div class="flex">
-        Something went wrong :(
-    </div>
+    <app-alert message="Something went wrong :("></app-alert>
 }
 
 @defer (on idle) {

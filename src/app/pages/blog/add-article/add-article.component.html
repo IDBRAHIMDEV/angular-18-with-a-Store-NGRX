@@ -11,18 +11,64 @@
                   <span class="label-text">Tape the title</span>
                 </div>
                 <input formControlName="title" type="text" placeholder="Title" class="input input-bordered w-full" />
+               
+                @if(title?.invalid && (title?.dirty || title?.touched)) {
+                  <div class="mx-3">
+
+                    @if(title?.errors?.['required']) {
+                      <span class="label label-text-alt text-red-500">Title is required !</span>
+                    }
+
+                    @if(title?.errors?.['minlength'])  {
+                      <span class="label label-text-alt text-red-500">Title should be more than 3 caracters !</span>
+                    }
+
+                  </div>
+                }
+
               </label>
               <label class="form-control w-full my-5">
                 <div class="label">
                   <span class="label-text">Url image</span>
                 </div>
                 <input formControlName="thumbnail" type="url" placeholder="image" class="input input-bordered w-full" />
+
+                @if(thumbnail?.invalid && (thumbnail?.dirty || thumbnail?.touched)) {
+                  <div class="mx-3">
+
+                    @if(thumbnail?.errors?.['required']) {
+                      <span class="label label-text-alt text-red-500">Thumbnail is required !</span>
+                    }
+
+                    @if(thumbnail?.errors?.['pattern'])  {
+                      <span class="label label-text-alt text-red-500">The Url must be valid !</span>
+                    }
+
+                  </div>
+                }
+                
+
               </label>
               <label class="form-control w-full my-3">
                 <div class="label">
                   <span class="label-text">Tape the  description</span>
                 </div>
                 <textarea  formControlName="description" class="textarea textarea-bordered w-full" placeholder="description" rows="4"></textarea>
+
+                @if(description?.invalid) {
+                  <div class="mx-3">
+
+                    @if(description?.errors?.['required']) {
+                      <span class="label label-text-alt text-red-500">description is required !</span>
+                    }
+
+                    @if(description?.errors?.['minlength'])  {
+                      <span class="label label-text-alt text-red-500">description should be more than 10 caracters !</span>
+                    }
+
+                  </div>
+                }
+
               </label>
             
             <div class="modal-action">
