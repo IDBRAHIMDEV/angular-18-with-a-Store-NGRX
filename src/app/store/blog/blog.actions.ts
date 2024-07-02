@@ -7,6 +7,10 @@ export const LOAD_ARTICLES_SUCCESS =
 export const LOAD_ARTICLES_FAILURE =
   '[Blog dist] load all articles failure dist';
 
+export const ADD_ARTICLE = '[Blog dist] create article dist';
+export const ADD_ARTICLE_SUCCESS = '[Blog dist] create article success dist';
+export const ADD_ARTICLE_FAILURE = '[Blog dist] create article failure dist';
+
 export const loadAllArticlesDist = createAction(LOAD_ARTICLES);
 
 export const loadAllArticlesSuccessDist = createAction(
@@ -19,9 +23,14 @@ export const loadAllArticlesFailureDist = createAction(
   props<{ error: string }>()
 );
 
-export const addArticle = createAction(
-  '[Blog] create article',
+export const addArticle = createAction(ADD_ARTICLE, props<{ article: Blog }>());
+export const addArticleSuccess = createAction(
+  ADD_ARTICLE_SUCCESS,
   props<{ article: Blog }>()
+);
+export const addArticleFailure = createAction(
+  ADD_ARTICLE_FAILURE,
+  props<{ error: string }>()
 );
 
 export const updateArticle = createAction(

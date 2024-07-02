@@ -2,6 +2,8 @@ import { createReducer, on } from '@ngrx/store';
 import { initBlogState } from './blog.state';
 import {
   addArticle,
+  addArticleFailure,
+  addArticleSuccess,
   deleteArticle,
   loadAllArticlesFailureDist,
   loadAllArticlesSuccessDist,
@@ -34,10 +36,21 @@ const blogReducer = createReducer(
     };
   }),
   on(addArticle, (state, action) => {
-    console.log(action.article);
+    return {
+      ...state,
+    };
+  }),
+  on(addArticleSuccess, (state, action) => {
     return {
       ...state,
       list: [action.article, ...state.list],
+      errorMessage: '',
+    };
+  }),
+  on(addArticleFailure, (state, action) => {
+    return {
+      ...state,
+      errorMessage: action.error,
     };
   }),
   on(loadOneArticle, (state, action) => {

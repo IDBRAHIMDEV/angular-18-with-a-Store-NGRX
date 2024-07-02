@@ -1,12 +1,22 @@
 {
-    "articles": [
-       
-          {
-            "title": "Learn Python",
-            "thumbnail":
-              "https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=width:705/https://cdn.filestackcontent.com/TZLXpJ9ORhmBgJUs1v5A",
-            "description": "description of this article python",
-            "id": 2
-          }
-    ]
+  "articles": [
+    {
+      "title": "Learn Python",
+      "thumbnail": "https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=width:705/https://cdn.filestackcontent.com/TZLXpJ9ORhmBgJUs1v5A",
+      "description": "description of this article python",
+      "id": 2
+    },
+    {
+      "id": 76347,
+      "title": "Learn wordpress",
+      "thumbnail": "https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=width:705/https://cdn.filestackcontent.com/sCDzADRwTkCwQyttfMlx",
+      "description": "Wordpress for advance"
+    },
+    {
+      "id": 1099,
+      "title": "Learn Spring boot",
+      "thumbnail": "https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=width:705/https://cdn.filestackcontent.com/4jgHzQESLa2F5uccFGc2",
+      "description": "spring boot from scratch"
+    }
+  ]
 }
