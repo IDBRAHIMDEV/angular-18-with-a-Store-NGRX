@@ -11,6 +11,14 @@ export const ADD_ARTICLE = '[Blog dist] create article dist';
 export const ADD_ARTICLE_SUCCESS = '[Blog dist] create article success dist';
 export const ADD_ARTICLE_FAILURE = '[Blog dist] create article failure dist';
 
+export const UPDATE_ARTICLE = '[Blog dist] update article dist';
+export const UPDATE_ARTICLE_SUCCESS = '[Blog dist] update article success dist';
+export const UPDATE_ARTICLE_FAILURE = '[Blog dist] update article failure dist';
+
+export const DELETE_ARTICLE = '[Blog dist] delete article dist';
+export const DELETE_ARTICLE_SUCCESS = '[Blog dist] delete article success dist';
+export const DELETE_ARTICLE_FAILURE = '[Blog dist] delete article failure dist';
+
 export const loadAllArticlesDist = createAction(LOAD_ARTICLES);
 
 export const loadAllArticlesSuccessDist = createAction(
@@ -28,19 +36,40 @@ export const addArticleSuccess = createAction(
   ADD_ARTICLE_SUCCESS,
   props<{ article: Blog }>()
 );
+
 export const addArticleFailure = createAction(
   ADD_ARTICLE_FAILURE,
   props<{ error: string }>()
 );
 
 export const updateArticle = createAction(
-  '[Blog] update article',
+  UPDATE_ARTICLE,
   props<{ article: Blog }>()
 );
 
+export const updateArticleSuccess = createAction(
+  UPDATE_ARTICLE_SUCCESS,
+  props<{ article: Blog }>()
+);
+
+export const updateArticleFailure = createAction(
+  UPDATE_ARTICLE_FAILURE,
+  props<{ error: string }>()
+);
+
 export const deleteArticle = createAction(
-  '[Blog] delete article',
+  DELETE_ARTICLE,
   props<{ id: number }>()
+);
+
+export const deleteArticleSuccess = createAction(
+  DELETE_ARTICLE_SUCCESS,
+  props<{ id: number }>()
+);
+
+export const deleteArticleFailure = createAction(
+  DELETE_ARTICLE_FAILURE,
+  props<{ error: string }>()
 );
 
 export const loadArticles = createAction(

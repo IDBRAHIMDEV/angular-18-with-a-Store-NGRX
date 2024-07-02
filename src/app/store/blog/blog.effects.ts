@@ -3,11 +3,17 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { BlogService } from '../../services/blog.service';
 import {
   ADD_ARTICLE,
+  DELETE_ARTICLE,
   LOAD_ARTICLES,
+  UPDATE_ARTICLE,
   addArticleFailure,
   addArticleSuccess,
+  deleteArticleFailure,
+  deleteArticleSuccess,
   loadAllArticlesFailureDist,
   loadAllArticlesSuccessDist,
+  updateArticleFailure,
+  updateArticleSuccess,
 } from './blog.actions';
 import { EMPTY, catchError, exhaustMap, map, of } from 'rxjs';
 
@@ -41,6 +47,40 @@ export class BlogEffects {
             return addArticleSuccess({ article: data });
           }),
           catchError((err) => of(addArticleFailure({ error: err.statusText })))
+        );
+      })
+    )
+  );
+
+  updateArticleEffect = createEffect(() =>
+    this.actions$.pipe(
+      ofType(UPDATE_ARTICLE),
+      exhaustMap((action) => {
+        return this.blogService
+          ._updateArticle(action.article.id, action.article)
+          .pipe(
+            map((data) => {
+              return updateArticleSuccess({ article: data });
+            }),
+            catchError((err) =>
+              of(updateArticleFailure({ error: err.statusText }))
+            )
+          );
+      })
+    )
+  );
+
+  deleteArticleEffect = createEffect(() =>
+    this.actions$.pipe(
+      ofType(DELETE_ARTICLE),
+      exhaustMap((action) => {
+        return this.blogService._deleteArticle(action.id).pipe(
+          map(() => {
+            return deleteArticleSuccess({ id: action.id });
+          }),
+          catchError((err) =>
+            of(deleteArticleFailure({ error: err.statusText }))
+          )
         );
       })
     )
