@@ -1,0 +1,12 @@
+{
+    "articles": [
+       
+          {
+            "title": "Learn Python",
+            "thumbnail":
+              "https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=width:705/https://cdn.filestackcontent.com/TZLXpJ9ORhmBgJUs1v5A",
+            "description": "description of this article python",
+            "id": 2
+          }
+    ]
+}

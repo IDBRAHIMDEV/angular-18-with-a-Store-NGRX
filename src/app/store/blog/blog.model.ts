@@ -8,4 +8,5 @@ export interface Blog {
 export interface BlogState {
   list: Blog[];
   article: Blog;
+  errorMessage: string;
 }

@@ -12,6 +12,7 @@ import { DestroyArticleComponent } from '../destroy-article/destroy-article.comp
 import { SkeletonCardComponent } from '../../../components/shared/skeleton-card/skeleton-card.component';
 import { LoadingComponent } from '../../../components/shared/loading/loading.component';
 import { AlertComponent } from '../../../components/shared/alert/alert.component';
+import { loadAllArticlesDist } from '../../../store/blog/blog.actions';
 
 @Component({
   selector: 'app-list-article',
@@ -34,11 +35,16 @@ export class ListArticleComponent implements OnInit {
   editable: boolean = false;
   deletable: boolean = false;
 
-  articles$!: Observable<Blog[]>;
+  articles!: { list: Blog[]; errorMessage: string };
   constructor(private store: Store<AppStore>) {}
 
   ngOnInit(): void {
-    this.articles$ = this.store.select(getArticles);
+    this.store.dispatch(loadAllArticlesDist());
+    this.store.select(getArticles).subscribe({
+      next: (res) => {
+        this.articles = res;
+      },
+    });
   }
 
   openModal() {

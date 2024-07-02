@@ -18,4 +18,5 @@ export const initBlogState: BlogState = {
     },
   ],
   article: {} as Blog,
+  errorMessage: '',
 };

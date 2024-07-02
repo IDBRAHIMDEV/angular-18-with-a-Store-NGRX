@@ -3,6 +3,8 @@ import { initBlogState } from './blog.state';
 import {
   addArticle,
   deleteArticle,
+  loadAllArticlesFailureDist,
+  loadAllArticlesSuccessDist,
   loadArticles,
   loadOneArticle,
   updateArticle,
@@ -15,6 +17,20 @@ const blogReducer = createReducer(
     return {
       ...state,
       list: action.list,
+    };
+  }),
+  on(loadAllArticlesSuccessDist, (state, action) => {
+    return {
+      ...state,
+      list: action.list,
+      errorMessage: '',
+    };
+  }),
+  on(loadAllArticlesFailureDist, (state, action) => {
+    return {
+      ...state,
+      list: [],
+      errorMessage: action.error,
     };
   }),
   on(addArticle, (state, action) => {
