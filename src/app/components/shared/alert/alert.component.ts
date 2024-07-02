@@ -1,12 +1,14 @@
+import { NgClass } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-alert',
   standalone: true,
-  imports: [],
+  imports: [NgClass],
   templateUrl: './alert.component.html',
   styleUrl: './alert.component.css',
 })
 export class AlertComponent {
   @Input({ required: true }) message: string = 'error';
+  @Input() mode: string = 'alert-error';
 }
