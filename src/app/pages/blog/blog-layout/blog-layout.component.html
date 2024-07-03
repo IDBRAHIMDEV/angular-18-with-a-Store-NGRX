@@ -1,0 +1,22 @@
+
+<div class="flex flex-row">
+    <div class="basis-1/2">
+        <h1 class="my-10 text-2xl font-bold text-gray-400">Blog</h1>
+    </div>
+   
+</div>
+
+<router-outlet></router-outlet>
+
+@defer (on idle) {
+
+    @if(editable) {
+        <app-edit-article [isOpen]="isModalOpen" (close)="closeModal()"></app-edit-article>
+    }
+    @else if(deletable) {
+        <app-destroy-article [isOpen]="isModalOpen" (close)="closeModal()"></app-destroy-article>
+    }
+    @else {
+        <app-add-article [isOpen]="isModalOpen" (close)="closeModal()"></app-add-article>
+    }
+}

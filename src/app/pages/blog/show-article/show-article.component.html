@@ -1,1 +1,11 @@
-<p>show-article works!</p>
+
+<div class="flex flex-row">
+    <div class="basis-1/2">
+        <h1 class="my-10 text-2xl font-bold text-gray-400">{{ article.title }}</h1>
+    </div>
+    <div class="basis-1/2 content-center text-end">
+        <a routerLink="/blog/list" class="btn btn-sm btn-secondary btn-outline">Back to list</a>
+    </div> 
+</div>
+
+<app-card-article [displayShow]="false" (openDeleteModalArticle)="openDeleteModal()" (openEditFormArticle)="openEditModal()" [article]="article"></app-card-article>

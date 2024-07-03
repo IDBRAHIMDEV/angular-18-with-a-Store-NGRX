@@ -20,9 +20,6 @@ import { loadAllArticlesDist } from '../../../store/blog/blog.actions';
   imports: [
     AsyncPipe,
     CardArticleComponent,
-    AddArticleComponent,
-    EditArticleComponent,
-    DestroyArticleComponent,
     SkeletonCardComponent,
     LoadingComponent,
     AlertComponent,

@@ -1,23 +1,22 @@
 import { createAction, props } from '@ngrx/store';
 import { Blog } from './blog.model';
-
-export const LOAD_ARTICLES = '[Blog dist] load all articles dist';
-export const LOAD_ARTICLES_SUCCESS =
-  '[Blog dist] load all articles success dist';
-export const LOAD_ARTICLES_FAILURE =
-  '[Blog dist] load all articles failure dist';
-
-export const ADD_ARTICLE = '[Blog dist] create article dist';
-export const ADD_ARTICLE_SUCCESS = '[Blog dist] create article success dist';
-export const ADD_ARTICLE_FAILURE = '[Blog dist] create article failure dist';
-
-export const UPDATE_ARTICLE = '[Blog dist] update article dist';
-export const UPDATE_ARTICLE_SUCCESS = '[Blog dist] update article success dist';
-export const UPDATE_ARTICLE_FAILURE = '[Blog dist] update article failure dist';
-
-export const DELETE_ARTICLE = '[Blog dist] delete article dist';
-export const DELETE_ARTICLE_SUCCESS = '[Blog dist] delete article success dist';
-export const DELETE_ARTICLE_FAILURE = '[Blog dist] delete article failure dist';
+import {
+  ADD_ARTICLE,
+  ADD_ARTICLE_FAILURE,
+  ADD_ARTICLE_SUCCESS,
+  DELETE_ARTICLE,
+  DELETE_ARTICLE_FAILURE,
+  DELETE_ARTICLE_SUCCESS,
+  LOAD_ARTICLES,
+  LOAD_ARTICLES_FAILURE,
+  LOAD_ARTICLES_SUCCESS,
+  LOAD_ONE_ARTICLE,
+  LOAD_ONE_ARTICLE_FAILURE,
+  LOAD_ONE_ARTICLE_SUCCESS,
+  UPDATE_ARTICLE,
+  UPDATE_ARTICLE_FAILURE,
+  UPDATE_ARTICLE_SUCCESS,
+} from './blog.types';
 
 export const loadAllArticlesDist = createAction(LOAD_ARTICLES);
 
@@ -78,8 +77,6 @@ export const loadArticles = createAction(
 );
 
 export const loadOneArticle = createAction(
-  '[Blog] load one article',
+  LOAD_ONE_ARTICLE,
   props<{ article: Blog }>()
 );
-
-export const editArticle = createAction('[Blo] edit article');

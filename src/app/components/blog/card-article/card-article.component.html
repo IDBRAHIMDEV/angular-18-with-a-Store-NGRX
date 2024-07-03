@@ -6,7 +6,9 @@
     <div class="card-actions justify-end">
       <button (click)="openEditArticle()" class="btn btn-outline btn-warning btn-sm mt-3">Edit</button>
       <button (click)="openDeleteArticle()" class="btn btn-outline btn-error btn-sm mt-3">Delete</button>
-      <button class="btn btn-outline btn-secondary btn-sm mt-3">Read more</button>
+      @if(displayShow) {
+        <button (click)="showOneArticle()" class="btn btn-outline btn-secondary btn-sm mt-3">Read more</button>
+      }
     </div>
   </div>
 </div>

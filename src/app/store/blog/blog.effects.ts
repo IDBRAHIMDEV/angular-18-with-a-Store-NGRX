@@ -1,11 +1,8 @@
 import { Injectable, inject } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { BlogService } from '../../services/blog.service';
+
 import {
-  ADD_ARTICLE,
-  DELETE_ARTICLE,
-  LOAD_ARTICLES,
-  UPDATE_ARTICLE,
   addArticleFailure,
   addArticleSuccess,
   deleteArticleFailure,
@@ -15,6 +12,14 @@ import {
   updateArticleFailure,
   updateArticleSuccess,
 } from './blog.actions';
+
+import {
+  ADD_ARTICLE,
+  DELETE_ARTICLE,
+  LOAD_ARTICLES,
+  UPDATE_ARTICLE,
+} from './blog.types';
+
 import { EMPTY, catchError, exhaustMap, map, of } from 'rxjs';
 
 Injectable();
