@@ -13,12 +13,13 @@ export class AuthEffect {
     return this.actions$.pipe(
       ofType(LOGIN),
       exhaustMap((action) => {
-        console.log(action);
         return this.authService.signIn(action.credential).pipe(
           map((action) => {
             return loginSuccess({ token: action.token });
           }),
-          catchError((err) => of(loginFailure({ error: action.error })))
+          catchError((err) =>
+            of(loginFailure({ error: 'Username or password went wrong !!' }))
+          )
         );
       })
     );

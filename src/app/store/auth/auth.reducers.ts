@@ -12,7 +12,6 @@ import {
 const authReducer = createReducer(
   initAuthState,
   on(login, (state, action) => {
-    console.log('login', action);
     return {
       ...state,
       token: '',
@@ -20,20 +19,17 @@ const authReducer = createReducer(
     };
   }),
   on(loginSuccess, (state, action) => {
-    console.log('login success', action);
-
     addToken(action.token);
     return {
       ...state,
       token: action.token,
+      errorMessage: '',
     };
   }),
   on(loginFailure, (state, action) => {
-    console.log('login failure', action.error);
-
     return {
       ...state,
-      error: action.error,
+      errorMessage: action.error,
     };
   }),
   on(logout, (state) => {
