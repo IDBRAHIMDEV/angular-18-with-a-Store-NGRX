@@ -6,6 +6,7 @@ import {
   login,
   loginFailure,
   loginSuccess,
+  logout,
 } from './auth.actions';
 
 const authReducer = createReducer(
@@ -29,10 +30,19 @@ const authReducer = createReducer(
   }),
   on(loginFailure, (state, action) => {
     console.log('login failure', action.error);
-    deleteToken();
+
     return {
       ...state,
       error: action.error,
+    };
+  }),
+  on(logout, (state) => {
+    deleteToken();
+    return {
+      ...state,
+      token: undefined,
+      user: undefined,
+      errorMessage: '',
     };
   })
 );
