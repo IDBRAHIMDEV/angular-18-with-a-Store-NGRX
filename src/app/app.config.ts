@@ -7,6 +7,7 @@ import { store } from './store/app.states';
 import { provideEffects } from '@ngrx/effects';
 import { provideHttpClient } from '@angular/common/http';
 import { BlogEffects } from './store/blog/blog.effects';
+import { AuthEffect } from './store/auth/auth.effects';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -16,6 +17,7 @@ export const appConfig: ApplicationConfig = {
     provideStore(),
     provideState(store.counter),
     provideState(store.blog),
-    provideEffects(BlogEffects),
+    provideState(store.auth),
+    provideEffects([BlogEffects, AuthEffect]),
   ],
 };

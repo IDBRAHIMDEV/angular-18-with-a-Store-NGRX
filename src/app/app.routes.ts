@@ -24,4 +24,9 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./pages/blog/blog.routes').then((m) => m.routes),
   },
+  {
+    path: 'auth',
+    loadChildren: () =>
+      import('./pages/auth/auth.routes').then((m) => m.routes),
+  },
 ];
