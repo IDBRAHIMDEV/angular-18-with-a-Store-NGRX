@@ -37,8 +37,10 @@ export class LoginComponent {
     };
     this.store.dispatch(login({ credential }));
     this.store.select(getToken).subscribe({
-      next: () => {
-        this.router.navigate(['/blog']);
+      next: (res) => {
+        if (res) {
+          this.router.navigate(['/blog']);
+        }
       },
     });
   }
