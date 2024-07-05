@@ -20,6 +20,9 @@ import { AsyncPipe } from '@angular/common';
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
+  userName = 'mor_2314';
+  pass = '83r5^_';
+
   loginForm!: FormGroup;
   errorMessage$!: Observable<string>;
 
@@ -48,6 +51,10 @@ export class LoginComponent {
         }
       },
     });
+  }
+
+  copy() {
+    this.loginForm.patchValue({ username: this.userName, password: this.pass });
   }
 
   get username() {
