@@ -20,8 +20,8 @@ import { AsyncPipe } from '@angular/common';
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
-  userName = 'mor_2314';
-  pass = '83r5^_';
+  userName = 'emilys';
+  pass = 'emilyspass';
 
   loginForm!: FormGroup;
   errorMessage$!: Observable<string>;

@@ -15,7 +15,8 @@ export class AuthEffect {
       exhaustMap((action) => {
         return this.authService.signIn(action.credential).pipe(
           map((action) => {
-            return loginSuccess({ token: action.token });
+            console.log(action);
+            return loginSuccess({ loginResult: action });
           }),
           catchError((err) =>
             of(loginFailure({ error: 'Username or password went wrong !!' }))

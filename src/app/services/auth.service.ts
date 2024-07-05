@@ -1,16 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable, tap } from 'rxjs';
-import { Credential } from '../store/auth/auth.model';
+import { Credential, LoginResult } from '../store/auth/auth.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  apiUrl = 'https://fakestoreapi.com/auth/login';
+  apiUrl = 'https://dummyjson.com/auth/login';
   http = inject(HttpClient);
 
-  signIn(credential: Credential): Observable<{ token: string }> {
-    return this.http.post<{ token: string }>(this.apiUrl, credential);
+  signIn(credential: Credential): Observable<LoginResult> {
+    return this.http.post<LoginResult>(this.apiUrl, credential);
   }
 }

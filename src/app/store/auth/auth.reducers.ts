@@ -8,6 +8,7 @@ import {
   loginSuccess,
   logout,
 } from './auth.actions';
+import { omit, pick } from 'lodash';
 
 const authReducer = createReducer(
   initAuthState,
@@ -19,10 +20,19 @@ const authReducer = createReducer(
     };
   }),
   on(loginSuccess, (state, action) => {
-    addToken(action.token);
+    console.log(action);
+    const user = omit(action.loginResult, ['token', 'refreshToken']);
+    const { token, refreshToken } = pick(action.loginResult, [
+      'token',
+      'refreshToken',
+    ]);
+
+    addToken(token);
     return {
       ...state,
-      token: action.token,
+      user,
+      token,
+      refreshToken,
       errorMessage: '',
     };
   }),
@@ -37,6 +47,7 @@ const authReducer = createReducer(
     return {
       ...state,
       token: undefined,
+      refreshToken: undefined,
       user: undefined,
       errorMessage: '',
     };

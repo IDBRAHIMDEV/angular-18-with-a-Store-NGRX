@@ -1,11 +1,12 @@
 import { createAction, on, props } from '@ngrx/store';
 import { LOGIN, LOGIN_FAILURE, LOGIN_SUCCESS, LOGOUT } from './auth.types';
+import { LoginResult } from './auth.model';
 
 export const login = createAction(LOGIN, props<{ credential: Credential }>());
 
 export const loginSuccess = createAction(
   LOGIN_SUCCESS,
-  props<{ token: string }>()
+  props<{ loginResult: LoginResult }>()
 );
 
 export const loginFailure = createAction(

@@ -14,6 +14,7 @@ import { BlogEffects } from './store/blog/blog.effects';
 import { AuthEffect } from './store/auth/auth.effects';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { provideRouterStore, routerReducer } from '@ngrx/router-store';
+import { ProductEffect } from './store/products/product.effects';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -27,7 +28,8 @@ export const appConfig: ApplicationConfig = {
     provideState(store.counter),
     provideState(store.blog),
     provideState(store.auth),
-    provideEffects([BlogEffects, AuthEffect]),
+    provideState(store.product),
+    provideEffects([BlogEffects, AuthEffect, ProductEffect]),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
     provideRouterStore(),
   ],
