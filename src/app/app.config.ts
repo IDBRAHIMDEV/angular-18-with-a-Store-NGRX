@@ -9,18 +9,19 @@ import { routes } from './app.routes';
 import { provideState, provideStore } from '@ngrx/store';
 import { store } from './store/app.states';
 import { provideEffects } from '@ngrx/effects';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { BlogEffects } from './store/blog/blog.effects';
 import { AuthEffect } from './store/auth/auth.effects';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { provideRouterStore, routerReducer } from '@ngrx/router-store';
 import { ProductEffect } from './store/products/product.effects';
+import { authInterceptor } from './services/auth.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    provideHttpClient(),
+    provideHttpClient(withInterceptors([authInterceptor])),
     provideStore({
       reducer: routerReducer,
     }),
