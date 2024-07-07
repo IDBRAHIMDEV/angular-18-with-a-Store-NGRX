@@ -59,7 +59,6 @@ export class AddArticleComponent {
     console.log('add');
     const newArticle = {
       ...this.formArticle.value,
-      id: random(4, 110000),
     };
 
     console.log(newArticle);

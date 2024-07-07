@@ -1,16 +1,52 @@
 {
   "articles": [
     {
-      "title": "Learn Python v11",
-      "thumbnail": "https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=width:705/https://cdn.filestackcontent.com/TZLXpJ9ORhmBgJUs1v5A",
-      "description": "description of this article python",
-      "id": "2"
-    },
-    {
-      "id": "1099",
+      "id": 1099,
       "title": "Learn Spring boot",
       "thumbnail": "https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=width:705/https://cdn.filestackcontent.com/4jgHzQESLa2F5uccFGc2",
       "description": "spring boot from scratch"
+    },
+    {
+      "title": "Learn React and Redux",
+      "thumbnail": "https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=width:705/https://cdn.filestackcontent.com/ndgpEj1YRAqrlS0gNZBb",
+      "description": "redux from scratch",
+      "id": 67634
+    },
+    {
+      "title": "Learn Django",
+      "thumbnail": "https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=width:705/https://cdn.filestackcontent.com/qq7I5yr4QvqfVAMKQG1K",
+      "description": "learn django from scratch",
+      "id": 34459
+    },
+    {
+      "title": "Learn Vue 3",
+      "thumbnail": "https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=width:705/https://cdn.filestackcontent.com/VXYNEvjqRvaVy7cvy0he",
+      "description": "vuejs version 3",
+      "id": 67635
+    },
+    {
+      "title": "Learn nodejs",
+      "thumbnail": "https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=width:705/https://cdn.filestackcontent.com/nSksEHOHQLSteJPjCg9t",
+      "description": "nodejs from scratch",
+      "id": 67636
+    },
+    {
+      "title": "PHP 7.4",
+      "thumbnail": "https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=width:705/https://cdn.filestackcontent.com/z2iWLZqWSEGLzj7tkVx3",
+      "description": "php from scratch",
+      "id": 67637
+    },
+    {
+      "title": "Learn Angular 17",
+      "thumbnail": "https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=width:705/https://cdn.filestackcontent.com/kHCQ5KxRfaEcsxZUNFiZ",
+      "description": "angular from scratch ",
+      "id": 67638
+    },
+    {
+      "title": "Learn Javascript",
+      "thumbnail": "https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=width:705/https://cdn.filestackcontent.com/7zQdVPcjSnGj7TCSIF5P",
+      "description": "javascript from scratch",
+      "id": 67639
     }
   ]
 }
